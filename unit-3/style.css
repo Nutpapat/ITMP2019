@@ -18,7 +18,7 @@ body{
 .title{
 	color: #pink;
 	animation: shadow .25s infinite alternate,
-	title 2s infinite steps(3);
+	title 2s infinite steps(2);
 }
 
 @keyframes shadow{
