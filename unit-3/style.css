@@ -12,13 +12,13 @@ body{
 }
 @keyframes bg{
 	from{background-position: 0% 0%}
-	to{background-position: -100% -88%}
+	to{background-position: -100% -50%}
 }
 
 .title{
-	color: #fff;
+	color: #pink;
 	animation: shadow .25s infinite alternate,
-	title 1s infinite steps(2);
+	title 2s infinite steps(3);
 }
 
 @keyframes shadow{
