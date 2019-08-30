@@ -5,6 +5,7 @@
 	<style type="text/css">
 	body{
 		margin:0;
+		background-image: url("bg.png");
 	}
 #rainbow{
 	--size:50px;
@@ -15,30 +16,37 @@
 	transition: all .3s;
 	height:var(--size);
 	width: var(--size);
-	background: hsl(var(--hue),90%,70%);
 	display: inline-block;
-	border-radius: 100px;
-	transform:0;
+	transform: scale(0);
+	opacity: 0;
+	margin: 1px;
+	border-radius: 50%;
+    box-shadow: 16px 16px 0 0 hsl(var(--hue),95%,75%);
 
 }
 #howManyRainbowStripsDoYouWantHeu{
 	padding: 0.5em;
-	width: 2em;
+	width: 2.2em;
 	margin-bottom: 0.2em; 
 	font-size: 2em;
 	border: 1px solid #eee;
-	border-radius: 0.1em; 
+	border-radius: 0.1em;
+	display: inline-block;
+    margin: 20px 20px; 
 }
 button{
 	font-size: 2em;
-	border: 1px solid #eee;
-	border-radius: 0.1em; 
+	border: 3px solid black;
+	border-radius: 50%; 
 	padding: 0.5em;
+	background-color: yellow;
+    display: inline-block;
+    margin: 20px 2px;
 }
 </style>
 </head>
 <body>
-	<input type="number" id="howManyRainbowStripsDoYouWantHeu" min="0" max="999" value="6">
+	<input type="number" id="howManyRainbowStripsDoYouWantHeu" min="0" max="999" value="203">
 	<button onclick="rainbowHaiDooNoy()">Go!</button>
 	<button onclick="play()">Play!</button>
 	<button onclick="stop()">Stop!</button>
@@ -48,9 +56,13 @@ button{
 		function rainbowHaiDooNoy(){
 			theNum = howManyRainbowStripsDoYouWantHeu.value;
 			rainbow.innerHTML = '';
+			for (var i = 0; i < theNum; i++) {
+				rainbow.innerHTML += `<div class="fuse" style="--hue:${i*(360/theNum)}" id="f-${i}"></div>`;
+			}
 			for (let i = 0; i < theNum; i++) {
 				setTimeout(function(){
-					rainbow.innerHTML += `<div class="fuse" style="--hue:${i*(360/theNum)}"></div>`;
+					document.querySelector(`#f-${i}`).style.transform = 'scale(1)';
+					document.querySelector(`#f-${i}`).style.opacity = '1';
 				},20*i);
 			}
 		}
