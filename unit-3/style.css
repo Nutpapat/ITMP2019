@@ -1,18 +1,18 @@
 body{
 	font-family: 'Itim', cursive, sans-serif;
-	font-size: 150%;
+	font-size: 200%;
 	margin:40px;
 	text-align: center;
-	background-image: url(bg.png);
+	background-image: url(bg.jpg);
 	background-position: 0% 0%;
-	background-size: 20%;
+	background-size: 30%;
 	/*background-size: cover;*/
 	min-height: 100vh; /*ทำให้เวลาทำพื้นหลังแล้วมันสูงเต็มหน้าจอ*/
 	animation: bg 40s infinite linear;
 }
 @keyframes bg{
 	from{background-position: 0% 0%}
-	to{background-position: -100% -50%}
+	to{background-position: -100% -80%}
 }
 
 .title{
