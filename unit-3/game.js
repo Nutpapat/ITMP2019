@@ -28,4 +28,4 @@ function getFortune(){
 	fortune.style.opacity = 1;
 	fortune.style.top = "96px";
 }
-
+UUUU
