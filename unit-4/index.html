@@ -66,14 +66,16 @@ button{
 				},20*i);
 			}
 		}
+		rainbowHaiDooNoy()
+
 		function play(){
 			theFuse = document.querySelectorAll('.fuse');
             theFuseSize = theFuse.length;
             j = theFuseSize-1;
             k = 0;
-			thePlay =	setInterval(function(){
+			thePlay = setInterval(function(){
 					if (k>=theFuseSize) {k=0}
-						if (j>=theFuseSize) {j=0}
+					if (j>=theFuseSize) {j=0}
 					theFuse[k].style.transform = "scale(2)";
 					theFuse[j].style.transform = "scale(1)";
 					k++;
