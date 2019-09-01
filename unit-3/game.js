@@ -12,7 +12,7 @@ function play(){
 	cookie2.classList.add("cookie-show");
 	setTimeout(function(){
 		getFortune();
-	},3000);
+	},1000);
 }
 function play2(){
 	cookie2.classList.remove("cookie-show");
