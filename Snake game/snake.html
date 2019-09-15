@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  
   <title></title>
   <style>
   body{
@@ -90,7 +90,7 @@
 }
 .o_span{ /*ปุ่มบังคับมือ*/
     display: block;
-    background-color: #47374A;
+    background-color: IndianRed;
     color: #fff;
     font-size: 16px;
     text-align: center;
@@ -169,6 +169,11 @@
 <div id="endGame">
     <h1 id="youDied">Game Over!</h1>
 </div>
+<audio id="audio" src="https://opengameart.org/sites/default/files/bgm_action_5.mp3"></audio>
+<audio id="audiomela" src="http://www.freesound.org/data/previews/170/170170_2578041-lq.mp3"></audio>
+<audio id="codam" src="http://www.freesound.org/data/previews/350/350987_5450487-lq.mp3"></audio>
+<audio id="velenom" src="http://www.freesound.org/data/previews/270/270327_5123851-lq.mp3"></audio>
+<audio id="crash" src="http://www.freesound.org/data/previews/99/99960_1386366-lq.mp3"></audio>
 <script>
 function choice(a) { /*randomอาหาร*/
   return a[Math.floor(Math.random() * a.length)];
@@ -202,6 +207,7 @@ $("#stop").click(function(e) { /*กดแล้วจะหยุดเล่�
   if (!stop) {
     $("#stop").text("stop");
   }
+  stopplay()
 });
 
 $("#playagain").click(function(e) { /*กดแล้วจะเล่นอีกครั้ง*/
@@ -211,6 +217,7 @@ $("#playagain").click(function(e) { /*กดแล้วจะเล่นอี
   document.getElementById('endGame').style.display = 'none';/*ซ่อนหน้าgameover*/
   xbomba.forEach(function(item, index) {
     $("#bomb" + (index)).remove();
+  stopplay()
   });
 
   dim = 30;
@@ -266,7 +273,7 @@ function move() { /*แสดงการเคลื่อนไหวของ
 
   xtesta += vx;
   ytesta += vy;
-  
+  play()
   if (xtesta > (600 / dim) - 1) {
     xtesta = 0;
   }
@@ -283,6 +290,9 @@ function move() { /*แสดงการเคลื่อนไหวของ
   xbomba.forEach(function(item, index) {
     if (xtesta == xbomba[index] && ytesta == ybomba[index]) {
       lose = 1;
+      codaplay()
+      crashplay()
+      stopplay()
       document.getElementById('endGame').style.display = 'block';/*แสดงหน้าgameover*/
       xbomba.forEach(function(item, index) {
         $("#bomb" + (index)).remove();
@@ -303,6 +313,10 @@ function move() { /*แสดงการเคลื่อนไหวของ
   xcorpo.forEach(function(item, index) {
     if (xtesta == xcorpo[index] && ytesta == ycorpo[index]) {
       lose = 1;
+      codaplay()
+      crashplay()
+      stopplay()
+      document.getElementById('endGame').style.display = 'block';/*แสดงหน้าgameover*/
       $("#snake" + (index + 1)).css({
         backgroundColor: "red",
       });
@@ -332,7 +346,7 @@ function eat() { /*แสดงการกินอาหารของงู*
     pezzo.appendTo('#campo');
     xcorpo.push(xcorpo[xcorpo.length - 1]);
     ycorpo.push(ycorpo[ycorpo.length - 1]);
-
+    foodplay()
     if (score % 7 == 1) {
       xbomba.push(Math.floor(Math.random() * Math.floor(600 / dim)));
       ybomba.push(Math.floor(Math.random() * Math.floor(600 / dim)));
@@ -427,24 +441,28 @@ function keyDownTextField(e) {
     vx = -1;
     vy = 0;
     hgp = 1
+    velenoplay()
   }
   //up
   if (keyCode == 38 && vy != 1 && hgp == 0) {
     vx = 0;
     vy = -1;
     hgp = 1
+    velenoplay()
   }
   //right
   if (keyCode == 39 && vx != -1 && hgp == 0) {
     vx = 1;
     vy = 0;
     hgp = 1
+    velenoplay()
   }
   //down
   if (keyCode == 40 && vy != -1 && hgp == 0) {
     vx = 0;
     vy = 1;
     hgp = 1
+    velenoplay()
   }
   if (keyCode == 17) {
     cvel = 1
@@ -456,6 +474,7 @@ function keyDownTextField(e) {
     vx = 0;
     vy = -1;
     hgp = 1
+    velenoplay()
   }
   })
   $(".dirRight").on('click',function(){
@@ -463,6 +482,7 @@ function keyDownTextField(e) {
     vx = 1;
     vy = 0;
     hgp = 1
+    velenoplay()
   }
   })
   $(".dirDown").on('click',function(){
@@ -470,6 +490,7 @@ function keyDownTextField(e) {
     vx = 0;
     vy = 1;
     hgp = 1
+    velenoplay()
   }
   })
   $(".dirLeft").on('click',function(){
@@ -477,6 +498,7 @@ function keyDownTextField(e) {
     vx = -1;
     vy = 0;
     hgp = 1
+    velenoplay()
   }
   })
 
@@ -494,6 +516,39 @@ function step() {
 }
 
 setTimeout(step, vel);
+
+//funzione audio principale
+function play(){
+  var audio = document.getElementById("audio");
+  audio.play();
+}
+function stopplay(){
+  var audio = document.getElementById("audio");
+  audio.pause();
+}
+
+//funzione audio mela
+function foodplay(){
+  var food = document.getElementById("audiomela");
+  food.play();
+}
+
+//funzione audio mangaia coda
+function codaplay(){
+  var codap = document.getElementById("codam");
+  codap.play();
+}
+
+//funzione audio perdita crash
+function crashplay(){
+  var urto = document.getElementById("crash");
+  urto.play();
+}
+//funzione audio veleno
+function velenoplay(){
+  var velenop = document.getElementById("velenom");
+  velenop.play()
+}
 
 </script>
 </body>
