@@ -451,6 +451,35 @@ function keyDownTextField(e) {
   }
 }
 
+  $(".dirUp").on('click',function(){
+    if (vy != 1 && hgp == 0) {
+    vx = 0;
+    vy = -1;
+    hgp = 1
+  }
+  })
+  $(".dirRight").on('click',function(){
+    if (vx != -1 && hgp == 0) {
+    vx = 1;
+    vy = 0;
+    hgp = 1
+  }
+  })
+  $(".dirDown").on('click',function(){
+    if (vy != -1 && hgp == 0) {
+    vx = 0;
+    vy = 1;
+    hgp = 1
+  }
+  })
+  $(".dirLeft").on('click',function(){
+    if (vx != 1 && hgp == 0) {
+    vx = -1;
+    vy = 0;
+    hgp = 1
+  }
+  })
+
 function step() {
   if (!stop) {
     if (lose === 0) {
