@@ -7,11 +7,11 @@
   <style>
   body{
     font-family: 'Itim', cursive, sans-serif;
-    background: url(bg.jpg) no-repeat center;
+    background: url(pic/bg.jpg) no-repeat center;
     background-size: cover;
     min-height: 80vh;
   }
-  #campo {
+  #campo { /*พื้นที่งูวิ่ง*/
   position: absolute;
   top: 80px;
   left: 500px;
@@ -20,7 +20,7 @@
   width:600px;
 }
 
-#snake_testa {
+#snake_testa { /*สร้างตัวงู*/
   position: absolute;
   top:30px;
   left:30px;
@@ -30,7 +30,7 @@
   background-color:LimeGreen;
 }
 
-#od {
+#od { /*ตาขวาของงู*/
   position: absolute;
   top:4px;
   left:4px;
@@ -39,7 +39,7 @@
   background-color:black;
 }
 
-#os {
+#os { /*ตาซ้ายของงู*/
   position: absolute;
   top:4px;
   left:18px;
@@ -48,7 +48,7 @@
   background-color:black;
 }
 
-#score {
+#score { /*ช่องนับคะแนน*/
   position: absolute;
   top: 20px;
   left:700px;
@@ -62,7 +62,7 @@
   border-radius: 50px; 
 }
 
-#playagain {
+#playagain { /*ปุ่มเล่นอีกครั้ง*/
   position: absolute;
   top: 690px;
   left:600px;
@@ -76,7 +76,7 @@
 
 }
 
-#stop {
+#stop { /*ปุ่มหยุด*/
   position: absolute;
   top: 690px;
   left:880px;
@@ -88,7 +88,7 @@
   border-radius: 50px;
   font-family: 'Itim', cursive, sans-serif;
 }
-.o_span{
+.o_span{ /*ปุ่มบังคับมือ*/
     display: block;
     background-color: #47374A;
     color: #fff;
@@ -99,7 +99,7 @@
     font-weight: bolder;
   }
 
-  .dirUp{
+  .dirUp{ /*กดขึ้นข้างบน*/
     width:60px;
     height: 35px;
     line-height: 35px;
@@ -107,7 +107,7 @@
     top:180px;
     left: 400px;
   }
-  .dirRight{
+  .dirRight{ /*กดไปทางขวา*/
     width:35px;
     height: 60px;
     line-height: 60px;
@@ -115,7 +115,7 @@
     top:220px;
     left: 450px;
   }
-  .dirDown{
+  .dirDown{ /*กดลงข้างล่าง*/
     width:60px;
     height: 35px;
     line-height: 35px;
@@ -123,7 +123,7 @@
     top:285px;
     left: 400px;
   }
-  .dirLeft{
+  .dirLeft{ /*กดไปทางซ้าย*/
     width:35px;
     height: 60px;
     line-height: 60px;
@@ -131,13 +131,27 @@
     top:220px;
     left: 380px;
   }
-  .warning_span{
+#endGame{
     position: absolute;
-    top:-30px;
-    left: 115px;
-    color: #fff;
-  }
-
+    bottom: 490px;
+    left: 200px;
+    width: 380px;
+    height: 305px;
+    display: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-color: rgb(253, 253, 253);
+    border-width: 10px;
+    transition: 1s;
+}
+#youDied{
+    position: absolute;
+    top: 280px;
+    left: 500px;
+    font-size: 80px;
+    margin: 0px;
+    color: aliceblue;   
+}  
   </style>
 </head>
 <body>
@@ -152,13 +166,15 @@
     <span class="o_span dirRight">→</span>
     <span class="o_span dirDown">↓</span>
     <span class="o_span dirLeft">←</span>
-
+<div id="endGame">
+    <h1 id="youDied">Game Over!</h1>
+</div>
 <script>
 function choice(a) {
   return a[Math.floor(Math.random() * a.length)];
 }
 
-var img_cibi = ["pic/apple.png", "pic/watermelon.png", "pic/cherries.png", "pic/orange.png", "pic/strawberry.png", "pic/grapes.png", "pic/banana.png", "pic/pineapple.png"];
+var img_food = ["pic/apple.png", "pic/watermelon.png", "pic/cherries.png", "pic/orange.png", "pic/strawberry.png", "pic/grapes.png", "pic/banana.png", "pic/pineapple.png"];
 var foody = 0;
 var dim = 30;
 var xtesta = 1;
@@ -178,7 +194,7 @@ var hgp = 0;
 var vel = 150
 var cvel = 0
 
-$("#stop").click(function(e) {
+$("#stop").click(function(e) { /*กดแล้วจะหยุดเล่น*/
   stop = !stop;
   if (stop) {
     $("#stop").text("stop");
@@ -188,13 +204,15 @@ $("#stop").click(function(e) {
   }
 });
 
-$("#playagain").click(function(e) {
+$("#playagain").click(function(e) { /*กดแล้วจะเล่นอีกครั้ง*/
   xcorpo.forEach(function(item, index) {
     $("#snake" + (index + 1)).remove();
   });
+  document.getElementById('endGame').style.display = 'none';
   xbomba.forEach(function(item, index) {
     $("#bomb" + (index)).remove();
   });
+
   dim = 30;
   xtesta = 1;
   ytesta = 1;
@@ -209,25 +227,25 @@ $("#playagain").click(function(e) {
   score = 0;
   lose = 0;
   stop = 0;
-  $("#snake_testa").css({
+  $("#snake_testa").css({ /*กำหนดตัวงู*/
     top: "30px",
     left: "30px",
     backgroundColor: "LimeGreen",
     borderRadius: Math.floor(dim/2)
   });
-  $("#od").css({
+  $("#od").css({ /*กำหนดตา*/
     backgroundColor: "black"
   });
-  $("#os").css({
+  $("#os").css({ /*กำหนดตา*/
     backgroundColor: "black"
   });
   disegna();
 });
 
-function food() {
+function food() { /*กำหนดอาหาร*/
   foody = $("<img>");
   foody.attr('id', "bomb" + ((score - 1) / 7));
-  foody.attr('src', choice(img_cibi));
+  foody.attr('src', choice(img_food));
   foody.css({
     height: dim,
     width: dim,
@@ -265,6 +283,7 @@ function passo() {
   xbomba.forEach(function(item, index) {
     if (xtesta == xbomba[index] && ytesta == ybomba[index]) {
       lose = 1;
+      document.getElementById('endGame').style.display = 'block';
       xbomba.forEach(function(item, index) {
         $("#bomb" + (index)).remove();
       });
@@ -300,7 +319,7 @@ function mangia() {
     score += 1;
     xcibo = Math.floor(Math.random() * Math.floor(600 / dim));
     ycibo = Math.floor(Math.random() * Math.floor(600 / dim));
-    foody.attr('src', choice(img_cibi));
+    foody.attr('src', choice(img_food));
     pezzo = $('<div></div>');
     pezzo.attr('id', ("snake" + score));
     pezzo.css({
@@ -319,7 +338,7 @@ function mangia() {
       ybomba.push(Math.floor(Math.random() * Math.floor(600 / dim)));
       img = $("<img>");
       img.attr('id', "bomb" + ((score - 1) / 7));
-      img.attr('src', "bomb.png");
+      img.attr('src', "pic/bomb.png");
       img.css({
         height: dim,
         width: dim,
