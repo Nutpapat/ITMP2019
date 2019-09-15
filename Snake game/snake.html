@@ -131,7 +131,7 @@
     top:220px;
     left: 380px;
   }
-#endGame{
+#endGame{ /*เเสดงหน้าendGame*/
     position: absolute;
     bottom: 490px;
     left: 200px;
@@ -144,7 +144,7 @@
     border-width: 10px;
     transition: 1s;
 }
-#youDied{
+#youDied{ /*ใส่คำหน้าendGame*/
     position: absolute;
     top: 280px;
     left: 500px;
@@ -170,12 +170,12 @@
     <h1 id="youDied">Game Over!</h1>
 </div>
 <script>
-function choice(a) {
+function choice(a) { /*randomอาหาร*/
   return a[Math.floor(Math.random() * a.length)];
 }
 
-var img_food = ["pic/apple.png", "pic/watermelon.png", "pic/cherries.png", "pic/orange.png", "pic/strawberry.png", "pic/grapes.png", "pic/banana.png", "pic/pineapple.png"];
-var foody = 0;
+var img_food = ["pic/apple.png", "pic/watermelon.png", "pic/cherries.png", "pic/orange.png", "pic/strawberry.png", "pic/grapes.png", "pic/banana.png", "pic/pineapple.png"];/*ใส่รูปอาหาร*/
+var foody = 0; 
 var dim = 30;
 var xtesta = 1;
 var ytesta = 1;
@@ -183,8 +183,8 @@ var xcorpo = [];
 var ycorpo = [];
 var xbomba = [];
 var ybomba = [];
-var xcibo = Math.floor(Math.random() * Math.floor(600 / dim));
-var ycibo = Math.floor(Math.random() * Math.floor(600 / dim));
+var xcibo = Math.floor(Math.random() * Math.floor(600 / dim)); /*randomตำแหน่งงูแนวแกนx*/
+var ycibo = Math.floor(Math.random() * Math.floor(600 / dim)); /*randomตำแหน่งงูแนวแกนy*/
 var vx = 1;
 var vy = 0;
 var score = 0;
@@ -208,7 +208,7 @@ $("#playagain").click(function(e) { /*กดแล้วจะเล่นอี
   xcorpo.forEach(function(item, index) {
     $("#snake" + (index + 1)).remove();
   });
-  document.getElementById('endGame').style.display = 'none';
+  document.getElementById('endGame').style.display = 'none';/*ซ่อนหน้าgameover*/
   xbomba.forEach(function(item, index) {
     $("#bomb" + (index)).remove();
   });
@@ -239,10 +239,10 @@ $("#playagain").click(function(e) { /*กดแล้วจะเล่นอี
   $("#os").css({ /*กำหนดตา*/
     backgroundColor: "black"
   });
-  disegna();
+  drawning();
 });
 
-function food() { /*กำหนดอาหาร*/
+function food() { /*กำหนดตำแหน่งอาหาร*/
   foody = $("<img>");
   foody.attr('id', "bomb" + ((score - 1) / 7));
   foody.attr('src', choice(img_food));
@@ -253,11 +253,11 @@ function food() { /*กำหนดอาหาร*/
     top: ycibo * dim,
     left: xcibo * dim
   });
-  foody.appendTo('#campo');
+  foody.appendTo('#campo'); /*แสดงอาหารในพื้นที่*/
 }
 food();
 
-function passo() {
+function move() { /*แสดงการเคลื่อนไหวของงู*/
   
   xcorpo.unshift(xtesta);
   xcorpo.pop();
@@ -283,7 +283,7 @@ function passo() {
   xbomba.forEach(function(item, index) {
     if (xtesta == xbomba[index] && ytesta == ybomba[index]) {
       lose = 1;
-      document.getElementById('endGame').style.display = 'block';
+      document.getElementById('endGame').style.display = 'block';/*แสดงหน้าgameover*/
       xbomba.forEach(function(item, index) {
         $("#bomb" + (index)).remove();
       });
@@ -314,7 +314,7 @@ function passo() {
   });
 }
 
-function mangia() {
+function eat() { /*แสดงการกินอาหารของงู*/
   if (xtesta == xcibo && ytesta == ycibo) {
     score += 1;
     xcibo = Math.floor(Math.random() * Math.floor(600 / dim));
@@ -352,7 +352,7 @@ function mangia() {
   }
 }
 
-function disegna() {
+function drawning() { /*วาดงู*/
   $("#snake_testa").css({
     top: ytesta * dim,
     left: xtesta * dim
@@ -454,10 +454,10 @@ function keyDownTextField(e) {
 function step() {
   if (!stop) {
     if (lose === 0) {
-      passo();
-      mangia();
+      move();
+      eat();
     }
-    disegna();
+    drawning();
   }
   vel = 150 - 100*cvel
   cvel = 0
