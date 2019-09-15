@@ -158,7 +158,7 @@ function choice(a) {
   return a[Math.floor(Math.random() * a.length)];
 }
 
-var img_cibi = ["http://icon-icons.com/icons2/990/PNG/256/hamburger-icon-256_icon-icons.com_75220.png", "http://icon-icons.com/icons2/990/PNG/256/banana-icon-256_icon-icons.com_75209.png", "http://icon-icons.com/icons2/990/PNG/256/pop-corn-icon-256_icon-icons.com_75225.png", "http://icon-icons.com/icons2/468/PNG/512/Cheese_44338.png", "http://icon-icons.com/icons2/468/PNG/512/Apple_44337.png", "http://icon-icons.com/icons2/468/PNG/512/Bread_44349.png", "http://icon-icons.com/icons2/568/PNG/512/eggs_icon-icons.com_54431.png", "http://icon-icons.com/icons2/567/PNG/512/hotdog_icon-icons.com_54393.png"];
+var img_cibi = ["pic/apple.png", "pic/watermelon.png", "pic/cherries.png", "pic/orange.png", "pic/strawberry.png", "pic/grapes.png", "pic/banana.png", "pic/pineapple.png"];
 var foody = 0;
 var dim = 30;
 var xtesta = 1;
@@ -269,14 +269,14 @@ function passo() {
         $("#bomb" + (index)).remove();
       });
       $("#snake_testa").css({
-        backgroundColor: "yellow",
+        backgroundColor: "red",
         borderRadius: Math.floor(dim / 2)
       });
       $("#od").css({
-        backgroundColor: "yellow"
+        backgroundColor: "red"
       });
       $("#os").css({
-        backgroundColor: "yellow"
+        backgroundColor: "red"
       });
     }
   });
@@ -285,7 +285,7 @@ function passo() {
     if (xtesta == xcorpo[index] && ytesta == ycorpo[index]) {
       lose = 1;
       $("#snake" + (index + 1)).css({
-        backgroundColor: "yellow",
+        backgroundColor: "red",
       });
       xbomba.forEach(function(item, index) {
         $("#bomb" + (index)).remove();
