@@ -202,7 +202,7 @@ var cvel = 0
 $("#stop").click(function(e) { /*กดแล้วจะหยุดเล่น*/
   stop = !stop;
   if (stop) {
-    $("#stop").text("stop");
+    $("#stop").text("play");
   }
   if (!stop) {
     $("#stop").text("stop");
@@ -517,7 +517,7 @@ function step() {
 
 setTimeout(step, vel);
 
-//funzione audio principale
+//music play
 function play(){
   var audio = document.getElementById("audio");
   audio.play();
@@ -527,24 +527,24 @@ function stopplay(){
   audio.pause();
 }
 
-//funzione audio mela
+//music eat
 function foodplay(){
   var food = document.getElementById("audiomela");
   food.play();
 }
 
-//funzione audio mangaia coda
+//music crash
 function codaplay(){
   var codap = document.getElementById("codam");
   codap.play();
 }
 
-//funzione audio perdita crash
+//music crash
 function crashplay(){
   var urto = document.getElementById("crash");
   urto.play();
 }
-//funzione audio veleno
+//music button
 function velenoplay(){
   var velenop = document.getElementById("velenom");
   velenop.play()

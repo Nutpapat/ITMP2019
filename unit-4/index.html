@@ -1,453 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <title></title>
-  <style>
-  body{
-    font-family: 'Itim', cursive, sans-serif;
-    background: url(bg.jpg) no-repeat center;
-    background-size: cover;
-    min-height: 80vh;
-  }
-  #campo {
-  position: absolute;
-  top: 80px;
-  left: 500px;
-  background-color: #a9c6bc;
-  height:600px;
-  width:600px;
-}
-
-#snake_testa {
-  position: absolute;
-  top:30px;
-  left:30px;
-  height:30px;
-  width:30px;
-  border-radius: 15px;
-  background-color:LimeGreen;
-}
-
-#od {
-  position: absolute;
-  top:4px;
-  left:4px;
-  height:4px;
-  width:4px;
-  background-color:black;
-}
-
-#os {
-  position: absolute;
-  top:4px;
-  left:18px;
-  height:4px;
-  width:4px;
-  background-color:black;
-}
-
-#score {
-  position: absolute;
-  top: 20px;
-  left:700px;
-  height:40px;
-  width:180px;
-  font-size: 2em;
-  color: white;  
-  text-align: center;
-  background-color:white;
-  background-color:IndianRed;
-  border-radius: 50px; 
-}
-
-#playagain {
-  position: absolute;
-  top: 690px;
-  left:600px;
-  height:28px;
-  width:120px;
-  font-size: 1em;
-  color: white;
-  background-color:IndianRed;
-  border-radius: 50px;
-  font-family: 'Itim', cursive, sans-serif;
+	<title>Unit-4 Timing</title>
+	<style type="text/css">
+	body{
+		margin:0;
+		background-image: url("bg.png");
+	}
+#rainbow{
+	--size:50px;
+	--hue:0;
+	font-size: 0;
+	}
+.fuse{
+	transition: all .3s;
+	height:var(--size);
+	width: var(--size);
+	display: inline-block;
+	transform: scale(0);
+	opacity: 0;
+	margin: 1px;
+	border-radius: 50%;
+    box-shadow: 16px 16px 0 0 hsl(var(--hue),95%,75%);
 
 }
-
-#stop {
-  position: absolute;
-  top: 690px;
-  left:880px;
-  height:28px;
-  width:120px;
-  font-size: 1em;
-  color: white;
-  background-color:IndianRed;
-  border-radius: 50px;
-  font-family: 'Itim', cursive, sans-serif;
+#howManyRainbowStripsDoYouWantHeu{
+	padding: 0.5em;
+	width: 2.2em;
+	margin-bottom: 0.2em; 
+	font-size: 2em;
+	border: 1px solid #eee;
+	border-radius: 0.1em;
+	display: inline-block;
+    margin: 20px 20px; 
 }
-.o_span{
-    display: block;
-    background-color: #47374A;
-    color: #fff;
-    font-size: 16px;
-    text-align: center;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bolder;
-  }
-
-  .dirUp{
-    width:60px;
-    height: 35px;
-    line-height: 35px;
-    position: absolute;
-    top:180px;
-    left: 400px;
-  }
-  .dirRight{
-    width:35px;
-    height: 60px;
-    line-height: 60px;
-    position: absolute;
-    top:220px;
-    left: 450px;
-  }
-  .dirDown{
-    width:60px;
-    height: 35px;
-    line-height: 35px;
-    position: absolute;
-    top:285px;
-    left: 400px;
-  }
-  .dirLeft{
-    width:35px;
-    height: 60px;
-    line-height: 60px;
-    position: absolute;
-    top:220px;
-    left: 380px;
-  }
-  .warning_span{
-    position: absolute;
-    top:-30px;
-    left: 115px;
-    color: #fff;
-  }
-
-  </style>
+button{
+	font-size: 2em;
+	border: 3px solid black;
+	border-radius: 50%; 
+	padding: 0.5em;
+	background-color: yellow;
+    display: inline-block;
+    margin: 20px 2px;
+}
+</style>
 </head>
 <body>
-<div id="campo">
-<div id="snake_testa"> <div id=od></div> <div id=os></div> </div>
-<div id="snake0"></div>
-</div>
-<div id="score"></div>
-<button id="playagain">Play Again</button>
-<button id="stop">stop!</button>
-<span class="o_span dirUp">↑</span>
-    <span class="o_span dirRight">→</span>
-    <span class="o_span dirDown">↓</span>
-    <span class="o_span dirLeft">←</span>
+	<input type="number" id="howManyRainbowStripsDoYouWantHeu" min="0" max="999" value="203">
+	<button onclick="rainbowHaiDooNoy()">Go!</button>
+	<button onclick="play()">Play!</button>
+	<button onclick="stop()">Stop!</button>
+	<div id="rainbow">
+	</div>
+	<script type="text/javascript">
+		function rainbowHaiDooNoy(){
+			theNum = howManyRainbowStripsDoYouWantHeu.value;
+			rainbow.innerHTML = '';
+			for (var i = 0; i < theNum; i++) {
+				rainbow.innerHTML += `<div class="fuse" style="--hue:${i*(360/theNum)}" id="f-${i}"></div>`;
+			}
+			for (let i = 0; i < theNum; i++) {
+				setTimeout(function(){
+					document.querySelector(`#f-${i}`).style.transform = 'scale(1)';
+					document.querySelector(`#f-${i}`).style.opacity = '1';
+				},20*i);
+			}
+		}
+		rainbowHaiDooNoy()
 
-<script>
-function choice(a) {
-  return a[Math.floor(Math.random() * a.length)];
-}
-
-var img_cibi = ["http://icon-icons.com/icons2/990/PNG/256/hamburger-icon-256_icon-icons.com_75220.png", "http://icon-icons.com/icons2/990/PNG/256/banana-icon-256_icon-icons.com_75209.png", "http://icon-icons.com/icons2/990/PNG/256/pop-corn-icon-256_icon-icons.com_75225.png", "http://icon-icons.com/icons2/468/PNG/512/Cheese_44338.png", "http://icon-icons.com/icons2/468/PNG/512/Apple_44337.png", "http://icon-icons.com/icons2/468/PNG/512/Bread_44349.png", "http://icon-icons.com/icons2/568/PNG/512/eggs_icon-icons.com_54431.png", "http://icon-icons.com/icons2/567/PNG/512/hotdog_icon-icons.com_54393.png"];
-var foody = 0;
-var dim = 30;
-var xtesta = 1;
-var ytesta = 1;
-var xcorpo = [];
-var ycorpo = [];
-var xbomba = [];
-var ybomba = [];
-var xcibo = Math.floor(Math.random() * Math.floor(600 / dim));
-var ycibo = Math.floor(Math.random() * Math.floor(600 / dim));
-var vx = 1;
-var vy = 0;
-var score = 0;
-var lose = 0;
-var stop = 0;
-var hgp = 0;
-var vel = 150
-var cvel = 0
-
-$("#stop").click(function(e) {
-  stop = !stop;
-  if (stop) {
-    $("#stop").text("stop");
-  }
-  if (!stop) {
-    $("#stop").text("stop");
-  }
-});
-
-$("#playagain").click(function(e) {
-  xcorpo.forEach(function(item, index) {
-    $("#snake" + (index + 1)).remove();
-  });
-  xbomba.forEach(function(item, index) {
-    $("#bomb" + (index)).remove();
-  });
-  dim = 30;
-  xtesta = 1;
-  ytesta = 1;
-  xcorpo = [];
-  ycorpo = [];
-  xbomba = [];
-  ybomba = [];
-  xcibo = Math.floor(Math.random() * Math.floor(600 / dim));
-  ycibo = Math.floor(Math.random() * Math.floor(600 / dim));
-  vx = 1;
-  vy = 0;
-  score = 0;
-  lose = 0;
-  stop = 0;
-  $("#snake_testa").css({
-    top: "30px",
-    left: "30px",
-    backgroundColor: "LimeGreen",
-    borderRadius: Math.floor(dim/2)
-  });
-  $("#od").css({
-    backgroundColor: "black"
-  });
-  $("#os").css({
-    backgroundColor: "black"
-  });
-  disegna();
-});
-
-function food() {
-  foody = $("<img>");
-  foody.attr('id', "bomb" + ((score - 1) / 7));
-  foody.attr('src', choice(img_cibi));
-  foody.css({
-    height: dim,
-    width: dim,
-    position: "absolute",
-    top: ycibo * dim,
-    left: xcibo * dim
-  });
-  foody.appendTo('#campo');
-}
-food();
-
-function passo() {
-  
-  xcorpo.unshift(xtesta);
-  xcorpo.pop();
-  ycorpo.unshift(ytesta);
-  ycorpo.pop();
-
-  xtesta += vx;
-  ytesta += vy;
-  
-  if (xtesta > (600 / dim) - 1) {
-    xtesta = 0;
-  }
-  if (xtesta < 0) {
-    xtesta = Math.floor(600 / dim) - 1;
-  }
-  if (ytesta > (600 / dim) - 1) {
-    ytesta = 0;
-  }
-  if (ytesta < 0) {
-    ytesta = Math.floor(600 / dim) - 1;
-  }
-
-  xbomba.forEach(function(item, index) {
-    if (xtesta == xbomba[index] && ytesta == ybomba[index]) {
-      lose = 1;
-      xbomba.forEach(function(item, index) {
-        $("#bomb" + (index)).remove();
-      });
-      $("#snake_testa").css({
-        backgroundColor: "yellow",
-        borderRadius: Math.floor(dim / 2)
-      });
-      $("#od").css({
-        backgroundColor: "yellow"
-      });
-      $("#os").css({
-        backgroundColor: "yellow"
-      });
-    }
-  });
-
-  xcorpo.forEach(function(item, index) {
-    if (xtesta == xcorpo[index] && ytesta == ycorpo[index]) {
-      lose = 1;
-      $("#snake" + (index + 1)).css({
-        backgroundColor: "yellow",
-      });
-      xbomba.forEach(function(item, index) {
-        $("#bomb" + (index)).remove();
-      });
-
-    }
-  });
-}
-
-function mangia() {
-  if (xtesta == xcibo && ytesta == ycibo) {
-    score += 1;
-    xcibo = Math.floor(Math.random() * Math.floor(600 / dim));
-    ycibo = Math.floor(Math.random() * Math.floor(600 / dim));
-    foody.attr('src', choice(img_cibi));
-    pezzo = $('<div></div>');
-    pezzo.attr('id', ("snake" + score));
-    pezzo.css({
-      height: dim,
-      width: dim,
-      position: "absolute",
-      borderRadius: Math.floor(dim / 2),
-      backgroundColor: "LimeGreen",
-    });
-    pezzo.appendTo('#campo');
-    xcorpo.push(xcorpo[xcorpo.length - 1]);
-    ycorpo.push(ycorpo[ycorpo.length - 1]);
-
-    if (score % 7 == 1) {
-      xbomba.push(Math.floor(Math.random() * Math.floor(600 / dim)));
-      ybomba.push(Math.floor(Math.random() * Math.floor(600 / dim)));
-      img = $("<img>");
-      img.attr('id', "bomb" + ((score - 1) / 7));
-      img.attr('src', "bomb.png");
-      img.css({
-        height: dim,
-        width: dim,
-        position: "absolute",
-        top: ybomba[(score - 1) / 7] * dim,
-        left: xbomba[(score - 1) / 7] * dim
-      });
-      img.appendTo('#campo');
-
-    }
-  }
-}
-
-function disegna() {
-  $("#snake_testa").css({
-    top: ytesta * dim,
-    left: xtesta * dim
-  });
-
-  if (vx == 1) {
-    $("#od").css({
-      top: "19px",
-      left: "19px",
-    });
-    $("#os").css({
-      top: "7px",
-      left: "19px",
-    });
-  }
-
-  if (vx == -1) {
-    $("#od").css({
-      top: "7px",
-      left: "7px",
-    });
-    $("#os").css({
-      top: "19px",
-      left: "7px",
-    });
-  }
-
-  if (vy == 1) {
-    $("#od").css({
-      top: "19px",
-      left: "7px",
-    });
-    $("#os").css({
-      top: "19px",
-      left: "19px",
-    });
-  }
-
-  if (vy == -1) {
-    $("#od").css({
-      top: "7px",
-      left: "19px",
-    });
-    $("#os").css({
-      top: "7px",
-      left: "7px",
-    });
-  }
-
-  xcorpo.forEach(function(item, index) {
-    $("#snake" + (index + 1)).css({
-      top: ycorpo[index] * dim,
-      left: xcorpo[index] * dim
-    });
-  });
-
-  foody.css({
-    height: dim,
-    width: dim,
-    top: ycibo * dim,
-    left: xcibo * dim
-  });
-  $("#score").text("Score:"+ score);
-  hgp = 0
-}
-
-document.addEventListener("keydown", keyDownTextField, false);
-function keyDownTextField(e) {
-  var keyCode = e.keyCode;
-  //left
-  if (keyCode == 37 && vx != 1 && hgp == 0) {
-    vx = -1;
-    vy = 0;
-    hgp = 1
-  }
-  //up
-  if (keyCode == 38 && vy != 1 && hgp == 0) {
-    vx = 0;
-    vy = -1;
-    hgp = 1
-  }
-  //right
-  if (keyCode == 39 && vx != -1 && hgp == 0) {
-    vx = 1;
-    vy = 0;
-    hgp = 1
-  }
-  //down
-  if (keyCode == 40 && vy != -1 && hgp == 0) {
-    vx = 0;
-    vy = 1;
-    hgp = 1
-  }
-  if (keyCode == 17) {
-    cvel = 1
-  }
-}
-
-function step() {
-  if (!stop) {
-    if (lose === 0) {
-      passo();
-      mangia();
-    }
-    disegna();
-  }
-  vel = 150 - 100*cvel
-  cvel = 0
-  setTimeout(step, vel);
-}
-
-setTimeout(step, vel);
-
-</script>
+		function play(){
+			theFuse = document.querySelectorAll('.fuse');
+            theFuseSize = theFuse.length;
+            j = theFuseSize-1;
+            k = 0;
+			thePlay = setInterval(function(){
+					if (k>=theFuseSize) {k=0}
+					if (j>=theFuseSize) {j=0}
+					theFuse[k].style.transform = "scale(2)";
+					theFuse[j].style.transform = "scale(1)";
+					k++;
+					j++;
+				},300);
+			}
+		function stop(){
+			clearInterval(thePlay);
+			theFuse[j].style.transform = "scale(1)";
+		}
+		
+	</script>
 </body>
 </html>
-
