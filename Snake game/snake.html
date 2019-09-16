@@ -11,10 +11,10 @@
     background-size: cover;
     min-height: 80vh;
   }
-  #campo { /*พื้นที่งูวิ่ง*/
+#ground { /*พื้นที่งูวิ่ง*/
   position: absolute;
   top: 80px;
-  left: 500px;
+  left: 450px;
   background-color: #a9c6bc;
   height:600px;
   width:600px;
@@ -51,26 +51,26 @@
 #score { /*ช่องนับคะแนน*/
   position: absolute;
   top: 20px;
-  left:700px;
+  left:450px;
   height:40px;
   width:180px;
   font-size: 2em;
   color: white;  
   text-align: center;
   background-color:white;
-  background-color:IndianRed;
+  background-image: linear-gradient(to right top, #2ed0ea, #25dcde, #4be6ca, #79eeb1, #a8f398);
   border-radius: 50px; 
 }
 
 #playagain { /*ปุ่มเล่นอีกครั้ง*/
   position: absolute;
-  top: 690px;
-  left:600px;
-  height:28px;
-  width:120px;
+  top: 20px;
+  left: 800px;
+  height: 38px;
+  width: 100px;
   font-size: 1em;
   color: white;
-  background-color:IndianRed;
+  background-image: linear-gradient(to right top, #2ed0ea, #25dcde, #4be6ca, #79eeb1, #a8f398);
   border-radius: 50px;
   font-family: 'Itim', cursive, sans-serif;
 
@@ -78,58 +78,58 @@
 
 #stop { /*ปุ่มหยุด*/
   position: absolute;
-  top: 690px;
-  left:880px;
-  height:28px;
-  width:120px;
+  top: 20px;
+  left: 950px;
+  height: 38px;
+  width: 100px;
   font-size: 1em;
   color: white;
-  background-color:IndianRed;
+  background-image: linear-gradient(to right top, #2ed0ea, #25dcde, #4be6ca, #79eeb1, #a8f398);
   border-radius: 50px;
   font-family: 'Itim', cursive, sans-serif;
 }
 .o_span{ /*ปุ่มบังคับมือ*/
     display: block;
-    background-color: IndianRed;
+    background-image: linear-gradient(to right top, #2ed0ea, #25dcde, #4be6ca, #79eeb1, #a8f398);
     color: #fff;
-    font-size: 16px;
+    font-size: 3em;
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
     font-weight: bolder;
   }
 
-  .dirUp{ /*กดขึ้นข้างบน*/
-    width:60px;
-    height: 35px;
+.dirUp{ /*กดขึ้นข้างบน*/
+    width: 120px;
+    height: 60px;
     line-height: 35px;
     position: absolute;
-    top:180px;
-    left: 400px;
+    top: 220px;
+    left: 160px;
   }
-  .dirRight{ /*กดไปทางขวา*/
-    width:35px;
+.dirRight{ /*กดไปทางขวา*/
+    width: 120px;
     height: 60px;
     line-height: 60px;
     position: absolute;
-    top:220px;
-    left: 450px;
+    top: 290px;
+    left: 270px;
   }
-  .dirDown{ /*กดลงข้างล่าง*/
-    width:60px;
-    height: 35px;
+.dirDown{ /*กดลงข้างล่าง*/
+    width: 120px;
+    height: 60px;
     line-height: 35px;
     position: absolute;
-    top:285px;
-    left: 400px;
+    top: 360px;
+    left: 160px;
   }
-  .dirLeft{ /*กดไปทางซ้าย*/
-    width:35px;
+.dirLeft{ /*กดไปทางซ้าย*/
+    width: 120px;
     height: 60px;
     line-height: 60px;
     position: absolute;
-    top:220px;
-    left: 380px;
+    top: 290px;
+    left: 50px;
   }
 #endGame{ /*เเสดงหน้าendGame*/
     position: absolute;
@@ -152,10 +152,10 @@
     margin: 0px;
     color: aliceblue;   
 }  
-  </style>
+    </style>
 </head>
 <body>
-<div id="campo">
+<div id="ground">
 <div id="snake_testa"> <div id=od></div> <div id=os></div> </div>
 <div id="snake0"></div>
 </div>
@@ -163,9 +163,9 @@
 <button id="playagain">Play Again</button>
 <button id="stop">stop!</button>
 <span class="o_span dirUp">↑</span>
-    <span class="o_span dirRight">→</span>
-    <span class="o_span dirDown">↓</span>
-    <span class="o_span dirLeft">←</span>
+<span class="o_span dirRight">→</span>
+<span class="o_span dirDown">↓</span>
+<span class="o_span dirLeft">←</span>
 <div id="endGame">
     <h1 id="youDied">Game Over!</h1>
 </div>
@@ -260,7 +260,7 @@ function food() { /*กำหนดตำแหน่งอาหาร*/
     top: ycibo * dim,
     left: xcibo * dim
   });
-  foody.appendTo('#campo'); /*แสดงอาหารในพื้นที่*/
+  foody.appendTo('#ground'); /*แสดงอาหารในพื้นที่*/
 }
 food();
 
@@ -343,7 +343,7 @@ function eat() { /*แสดงการกินอาหารของงู*
       borderRadius: Math.floor(dim / 2),
       backgroundColor: "LimeGreen",
     });
-    pezzo.appendTo('#campo');
+    pezzo.appendTo('#ground');
     xcorpo.push(xcorpo[xcorpo.length - 1]);
     ycorpo.push(ycorpo[ycorpo.length - 1]);
     foodplay()
@@ -360,7 +360,7 @@ function eat() { /*แสดงการกินอาหารของงู*
         top: ybomba[(score - 1) / 7] * dim,
         left: xbomba[(score - 1) / 7] * dim
       });
-      img.appendTo('#campo');
+      img.appendTo('#ground');
 
     }
   }
