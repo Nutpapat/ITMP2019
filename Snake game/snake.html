@@ -147,7 +147,7 @@
 #youDied{ /*ใส่คำหน้าendGame*/
     position: absolute;
     top: 280px;
-    left: 500px;
+    left: 450px;
     font-size: 80px;
     margin: 0px;
     color: aliceblue;   
@@ -179,44 +179,44 @@ function choice(a) { /*randomอาหาร*/
   return a[Math.floor(Math.random() * a.length)];
 }
 
-var img_food = ["pic/apple.png", "pic/watermelon.png", "pic/cherries.png", "pic/orange.png", "pic/strawberry.png", "pic/grapes.png", "pic/banana.png", "pic/pineapple.png"];/*ใส่รูปอาหาร*/
-var foody = 0; 
-var dim = 30;
-var xtesta = 1;
-var ytesta = 1;
-var xcorpo = [];
-var ycorpo = [];
-var xbomba = [];
-var ybomba = [];
+var img_food = ["pic/apple.png", "pic/watermelon.png", "pic/cherries.png", "pic/orange.png", "pic/strawberry.png", "pic/grapes.png", "pic/banana.png", "pic/pineapple.png"];/*รูปอาหาร*/
+var foody = 0; /*กำหนดค่าเริ่มต้นอาหาร*/
+var dim = 30; /*//ขนาดบล็อคตัวงู*/
+var xtesta = 1; /*กำหนดค่าเริ่มต้นของงูในแกนx*/
+var ytesta = 1; /*กำหนดค่าเริ่มต้นของงูในแกนy*/
+var xcorpo = []; /*เก็บค่าพื้นที่งูเคลื่อนไหวในแกนx*/
+var ycorpo = []; /*เก็บค่าพื้นที่งูเคลื่อนไหวในแกนy*/
+var xbomba = []; /*เก็บค่าระเบิดในแกนx*/
+var ybomba = []; /*เก็บค่าระเบิดในแกนy*/
 var xcibo = Math.floor(Math.random() * Math.floor(600 / dim)); /*randomตำแหน่งงูแนวแกนx*/
 var ycibo = Math.floor(Math.random() * Math.floor(600 / dim)); /*randomตำแหน่งงูแนวแกนy*/
-var vx = 1;
+var vx = 1; 
 var vy = 0;
-var score = 0;
-var lose = 0;
-var stop = 0;
-var hgp = 0;
+var score = 0; /*กำหนดค่าเริ่มต้นของคะแนน*/
+var lose = 0; /*กำหนดค่าเริ่มต้นของการแพ้*/
+var stop = 0; /*กำหนดค่าเริ่มต้นของการหยุด*/
+var hgp = 0; /*กำหนดค่าเริ่มต้นของปุ่ม*/
 var vel = 150
-var cvel = 0
+var cvel = 0 /*กำหนดตัวแปรเช็คปุ่ม*/
 
 $("#stop").click(function(e) { /*กดแล้วจะหยุดเล่น*/
   stop = !stop;
   if (stop) {
-    $("#stop").text("play");
+    $("#stop").text("play"); /*แสดงข้อความเล่น*/
   }
   if (!stop) {
-    $("#stop").text("stop");
+    $("#stop").text("stop"); /*แสดงข้อความหยุดเล่น*/
   }
   stopplay()
 });
 
 $("#playagain").click(function(e) { /*กดแล้วจะเล่นอีกครั้ง*/
   xcorpo.forEach(function(item, index) {
-    $("#snake" + (index + 1)).remove();
+    $("#snake" + (index + 1)).remove(); /*ให้เหลือแค่หัวงู*/
   });
   document.getElementById('endGame').style.display = 'none';/*ซ่อนหน้าgameover*/
   xbomba.forEach(function(item, index) {
-    $("#bomb" + (index)).remove();
+    $("#bomb" + (index)).remove(); /*เอาระเบิดออก*/
   stopplay()
   });
 
@@ -238,7 +238,7 @@ $("#playagain").click(function(e) { /*กดแล้วจะเล่นอี
     top: "30px",
     left: "30px",
     backgroundColor: "LimeGreen",
-    borderRadius: Math.floor(dim/2)
+    borderRadius: Math.floor(dim/2) /*ให้ตัวงูเป็นวงกลม*/
   });
   $("#od").css({ /*กำหนดตา*/
     backgroundColor: "black"
@@ -250,10 +250,10 @@ $("#playagain").click(function(e) { /*กดแล้วจะเล่นอี
 });
 
 function food() { /*กำหนดตำแหน่งอาหาร*/
-  foody = $("<img>");
-  foody.attr('id', "bomb" + ((score - 1) / 7));
-  foody.attr('src', choice(img_food));
-  foody.css({
+  foody = $("<img>"); /*ใส่รูป*/
+  foody.attr('id', "bomb" + ((score - 1) / 7)); /*แสดงการสุ่มระเบิดตามคะแนน*/
+  foody.attr('src', choice(img_food)); /*แสดงรูปการสุ่มอาหาร*/
+  foody.css({ /*กำหนดขนาดอาหารให้พอดีกับตัวงู*/
     height: dim,
     width: dim,
     position: "absolute",
@@ -266,15 +266,16 @@ food();
 
 function move() { /*แสดงการเคลื่อนไหวของงู*/
   
-  xcorpo.unshift(xtesta);
-  xcorpo.pop();
-  ycorpo.unshift(ytesta);
-  ycorpo.pop();
+  xcorpo.unshift(xtesta); /*เพิ่มส่วนหัวแกนx*/
+  xcorpo.pop();           /*ลบส่วนหางแกนx*/
+  ycorpo.unshift(ytesta); /*เพิ่มส่วนหัวแกนy*/
+  ycorpo.pop();           /*ลบส่วนหางแกนy*/
 
   xtesta += vx;
   ytesta += vy;
   play()
-  if (xtesta > (600 / dim) - 1) {
+  /*คำนวนตำแหน่งงูวิ่งจากค่าพื้นที่*/
+  if (xtesta > (600 / dim) - 1) { 
     xtesta = 0;
   }
   if (xtesta < 0) {
@@ -287,7 +288,7 @@ function move() { /*แสดงการเคลื่อนไหวของ
     ytesta = Math.floor(600 / dim) - 1;
   }
 
-  xbomba.forEach(function(item, index) {
+  xbomba.forEach(function(item, index) {   /*งูโดนระเบิดจะตาย*/
     if (xtesta == xbomba[index] && ytesta == ybomba[index]) {
       lose = 1;
       codaplay()
@@ -297,31 +298,31 @@ function move() { /*แสดงการเคลื่อนไหวของ
       xbomba.forEach(function(item, index) {
         $("#bomb" + (index)).remove();
       });
-      $("#snake_testa").css({
+      $("#snake_testa").css({ /*งูโดนระเบิดส่วนหัวจะแดง*/
         backgroundColor: "red",
         borderRadius: Math.floor(dim / 2)
       });
-      $("#od").css({
+      $("#od").css({ /*งูโดนระเบิดตาจะแดง*/
         backgroundColor: "red"
       });
-      $("#os").css({
+      $("#os").css({ /*งูโดนระเบิดตาจะแดง*/
         backgroundColor: "red"
       });
     }
   });
 
-  xcorpo.forEach(function(item, index) {
+  xcorpo.forEach(function(item, index) { /*งูชนตัวเองจะตาย*/
     if (xtesta == xcorpo[index] && ytesta == ycorpo[index]) {
       lose = 1;
       codaplay()
       crashplay()
       stopplay()
       document.getElementById('endGame').style.display = 'block';/*แสดงหน้าgameover*/
-      $("#snake" + (index + 1)).css({
+      $("#snake" + (index + 1)).css({ /*งูชนตัวเองจะตายส่วนหัวจะเเดง*/
         backgroundColor: "red",
       });
       xbomba.forEach(function(item, index) {
-        $("#bomb" + (index)).remove();
+        $("#bomb" + (index)).remove(); /*เอาระเบิดออก*/
       });
 
     }
@@ -330,23 +331,24 @@ function move() { /*แสดงการเคลื่อนไหวของ
 
 function eat() { /*แสดงการกินอาหารของงู*/
   if (xtesta == xcibo && ytesta == ycibo) {
-    score += 1;
+    score += 1; /*งูกินอาหารได้บวกคะแนน*/
     xcibo = Math.floor(Math.random() * Math.floor(600 / dim));
     ycibo = Math.floor(Math.random() * Math.floor(600 / dim));
     foody.attr('src', choice(img_food));
-    pezzo = $('<div></div>');
-    pezzo.attr('id', ("snake" + score));
-    pezzo.css({
+    tail = $('<div></div>'); /*สร้างหางงู*/
+    tail.attr('id', ("snake" + score)); /*หางงูจะเพิ่มตามคะแนน*/
+    tail.css({ /*ตั้งค่าcssหางงู*/
       height: dim,
       width: dim,
       position: "absolute",
       borderRadius: Math.floor(dim / 2),
       backgroundColor: "LimeGreen",
     });
-    pezzo.appendTo('#ground');
-    xcorpo.push(xcorpo[xcorpo.length - 1]);
-    ycorpo.push(ycorpo[ycorpo.length - 1]);
-    foodplay()
+    tail.appendTo('#ground'); /*แสดงหางงูในพื้นที่*/
+    xcorpo.push(xcorpo[xcorpo.length - 1]); /*เพิ่มหางงูไปที่ตำแหน่งสุดท้ายในแนวแกนx*/
+    ycorpo.push(ycorpo[ycorpo.length - 1]); /*เพิ่มหางงูไปที่ตำแหน่งสุดท้ายในแนวแกนy*/
+    foodplay() 
+    /*แรนดอมระเบิดตามscore*/
     if (score % 7 == 1) {
       xbomba.push(Math.floor(Math.random() * Math.floor(600 / dim)));
       ybomba.push(Math.floor(Math.random() * Math.floor(600 / dim)));
@@ -366,7 +368,7 @@ function eat() { /*แสดงการกินอาหารของงู*
   }
 }
 
-function drawning() { /*วาดงู*/
+function drawning() { /*วาดตางูให้ขยับตามงูตอนเคลื่อนไหว*/
   $("#snake_testa").css({
     top: ytesta * dim,
     left: xtesta * dim
@@ -415,26 +417,27 @@ function drawning() { /*วาดงู*/
       left: "7px",
     });
   }
-
+  
   xcorpo.forEach(function(item, index) {
+    /*วนลูปตำแหน่งงู*/
     $("#snake" + (index + 1)).css({
       top: ycorpo[index] * dim,
       left: xcorpo[index] * dim
     });
   });
-
-  foody.css({
+  /*วนลูปตำแหน่งอาหาร*/
+  foody.css({ 
     height: dim,
     width: dim,
     top: ycibo * dim,
     left: xcibo * dim
   });
-  $("#score").text("Score:"+ score);
+  $("#score").text("Score:"+ score); /*แสดงคะแนนที่เล่นได้*/
   hgp = 0
 }
-
+/*ให้กดแป้นลูกศรในแป้นได้ตามตำแหน่งที่กำหนดไว้*/
 document.addEventListener("keydown", keyDownTextField, false);
-function keyDownTextField(e) {
+function keyDownTextField(e) { 
   var keyCode = e.keyCode;
   //left
   if (keyCode == 37 && vx != 1 && hgp == 0) {
@@ -468,7 +471,7 @@ function keyDownTextField(e) {
     cvel = 1
   }
 }
-
+/*ให้กดแป้นลูกศรแบบทัชได้ตามตำแหน่งที่กำหนดไว้*/
   $(".dirUp").on('click',function(){
     if (vy != 1 && hgp == 0) {
     vx = 0;
@@ -502,6 +505,7 @@ function keyDownTextField(e) {
   }
   })
 
+/*ถ้างูไม่หยุดให้งูขยับและกินไปเรื่อยๆ*/
 function step() {
   if (!stop) {
     if (lose === 0) {
@@ -514,7 +518,7 @@ function step() {
   cvel = 0
   setTimeout(step, vel);
 }
-
+/*ถ้างูไม่หยุดให้งูขยับและกินไปเรื่อยๆ*/
 setTimeout(step, vel);
 
 //music play
@@ -553,4 +557,3 @@ function velenoplay(){
 </script>
 </body>
 </html>
-
