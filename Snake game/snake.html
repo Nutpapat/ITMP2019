@@ -4,6 +4,9 @@
     <head>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <title></title>
         <style>
           @import url("https://fonts.googleapis.com/css?family=VT323");
@@ -13,9 +16,9 @@
                 background-color: black;
             }
             .maingroup {
-                position: absolute;
+                position: relative;
                 top: calc((100vh - 750px) / 2);
-                right: 1800px;
+                right: 400px;
             }
             #ground {
                 /*พื้นที่งูวิ่ง*/
@@ -40,7 +43,7 @@
                 background-color: LimeGreen;
             }
             .buttongroup {
-                position: absolute;
+                position: relative;
                 top:80px;
                 width: 10%;
                 padding: 250px 150px;
@@ -81,29 +84,29 @@
             #playagain {
                 /*ปุ่มเล่นอีกครั้ง*/
                 position: absolute;
-                top: 20px;
-                left: 800px;
-                height: 38px;
-                width: 100px;
+                top: -72px;
+                left: 320px;
+                height: 50px;
+                width: 60px;
                 font-size: 1em;
                 color: white;
                 background-color: #1F1F1F;
-                border-radius: 50px;
+                border-radius: 100%;
                 border: 2px solid #002dac;
                 box-shadow: 0 0 1px #002dac, 0 0 5px #002dac, 0px 0px 20px #002dac, 0px 0px 30px #000000;
                 font-family: "VT323";
             }
             #stop {
                 /*ปุ่มหยุด*/
-                position: relative;
-                top: 20px;
-                left: 950px;
-                height: 38px;
-                width: 100px;
+                position: absolute;
+                top: -72px;
+                left: 400px;
+                height: 50px;
+                width: 60px;
                 font-size: 1em;
                 color: white;
                 background-color: #1F1F1F;
-                border-radius: 50px;
+                border-radius: 100%;
                 border: 2px solid #002dac;
                 box-shadow: 0 0 1px #002dac, 0 0 5px #002dac, 0px 0px 20px #002dac, 0px 0px 30px #000000;
                 font-family: "VT323";
@@ -111,29 +114,18 @@
             .o_span {
                 /*ปุ่มบังคับมือ*/
                 display: block;
-                background-color: #1F1F1F;
-                color: #fff;
-                font-size: 3em;
-                text-align: center;
-                border-radius: 10px;
                 cursor: pointer;
-                font-weight: bolder;
                 position: relative;
             }
             .dirUp {
                 /*กดขึ้นข้างบน*/
-                width: 120px;
-                height: 60px;
                 line-height: 35px;
                 position: absolute;
-                top: 220px;
-                left: 160px;
-                border-radius: 50%;
+                top: 200px;
+                left: 145px;
             }
             .dirRight {
                 /*กดไปทางขวา*/
-                width: 120px;
-                height: 60px;
                 line-height: 60px;
                 position: absolute;
                 top: 290px;
@@ -142,22 +134,16 @@
             }
             .dirDown {
                 /*กดลงข้างล่าง*/
-                width: 120px;
-                height: 60px;
-                line-height: 35px;
                 position: absolute;
-                top: 360px;
-                left: 160px;
+                top: 370px;
+                left: 145px;
                 border-radius: 50%;
             }
             .dirLeft {
                 /*กดไปทางซ้าย*/
-                width: 120px;
-                height: 60px;
-                line-height: 60px;
                 position: absolute;
                 top: 290px;
-                left: 50px;
+                left: 40px;
                 border-radius: 50%;
             }
             #endGame {
@@ -205,33 +191,33 @@
                 </div>
                 <div id="snake0"></div>
             </div>
-            <div id="buttonplayagain">
-                <button id="playagain">Play Again</button>
-            </div>
-            <div
-                class="buttonStop">
-                <!-- ปุ่มหยุด -->
-                <button id="stop">stop!</button>
-            </div>
+           
             <div id="endGame">
                 <h1 id="youDied">Game Over!</h1>
             </div>
         </div>
 
         <div class="buttongroup">
+           <div id="buttonplayagain">
+                <button id="playagain"><i class='fas fa-redo' style='font-size:20px;color:white'></i></button>
+            </div>
+            <div class="buttonStop">
+                <!-- ปุ่มหยุด -->
+                <button id="stop"><i class="fa fa-stop" style="font-size:20px;color:white"></i></button>
+            </div>
             <div id="score"></div>
             <!-- รวมปุ่มทิศทาง -->
             <span class="o_span dirUp">
-                <span class="inArrowUD">↑</span>
+                <span class="inArrowUD"><i class='fas fa-arrow-circle-up' style='font-size:80px;color:white'></i></span>
             </span>
             <span class="o_span dirRight">
-                <span class="inArrowLR">→</span>
+                <span class="inArrowLR"><i class='fas fa-arrow-circle-right' style='font-size:80px;color:white'></i></span>
             </span>
             <span class="o_span dirDown">
-                <span class="inArrowUD">↓</span>
+                <span class="inArrowUD"><i class='fas fa-arrow-circle-down' style='font-size:80px;color:white'></i></span>
             </span>
             <span class="o_span dirLeft">
-                <span class="inArrowLR">←</span>
+                <span class="inArrowLR"><i class='fas fa-arrow-circle-left' style='font-size:80px;color:white'></i></span>
             </span>
         </div>
         <!-- <div id="endGame">
