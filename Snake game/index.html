@@ -16,7 +16,10 @@
                 font-family: "VT323";
             }
             body{
-                background-color: black;
+                background: #141E30;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
             }
             canvas{
                 display: none;
@@ -78,11 +81,13 @@
             	top:220px;
             	left: 350px;
             }
+
 	</style>
 
 </head>
 
 <body>
+			<canvas id="space"></canvas>
             
             <!-- Main Menu Screen -->
             <div id="menu">
