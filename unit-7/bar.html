@@ -32,21 +32,24 @@
 	}
 	#paragraph{
 		transform: scale(1);
-		transition: all 3s;
+		transition: all .3s;
 	}
 	#paragraph.small{
 		transform: scale(0.2);
 	}
+	.parent{
+		height: 100vh;
+	}
 </style>
 </head>
 <body>
-	<div class="fullscreen bg-smoke padding-l v-middle-flex">
+	<div class="parent bg-smoke padding-l v-middle-flex">
 		<div class="to-center">
 			<h1>Welcome</h1>
 			<p>Please scroll down</p>
 		</div>
 	</div>
-	<div class="fullscreen bg-white padding-l v-middle-flex">
+	<div class="parent bg-white padding-l v-middle-flex">
 		<div class="to-center">
 			<h1>My Learning</h1>
 			<sp class="xl"></sp>
@@ -69,9 +72,9 @@
 				</div>
 			</div>
 		</div>
-
+​
 	</div>
-	<div class="fullscreen bg-smoke padding-l v-middle-flex">
+	<div class="parent bg-smoke padding-l v-middle-flex">
 		<div class="to-center">
 			<h1>I'm Genius, right?</h1>
 			<sp class="xl"></sp>
@@ -85,8 +88,41 @@
 			</p>
 		</div>
 	</div>
+	<div class="parent bg-white padding-l v-middle-flex">
+	</div>
 	<div id="topLine">
 		
 	</div>
+​
+	<script type="text/javascript">
+		let bodyR = document.body.getBoundingClientRect();
+		let bodyH = window.innerHeight;
+		let y = window.pageYOffset;
+		let yBottom = window.pageYOffset+window.innerHeight;
+		function onScroll(){
+			bodyR = document.body.getBoundingClientRect();
+			y = window.pageYOffset;
+			yBottom = window.pageYOffset+window.innerHeight;
+			console.log(bodyR);
+		}
+		window.addEventListener("scroll", onScroll);
+​
+		function ppp(){
+			let ppR = paragraph.getBoundingClientRect();
+			console.log(ppR);
+			console.log(ppR.top-bodyH > -100 );
+			console.log(ppR.top-bodyH < 0)
+			// ppR.top คือระยะห่างของพารากราฟขณะนั้นกับขอบบนเบราเซอร์ 
+			// หาก top = 0 คืออีลีเมนท์อยู่ชิดขอบบน
+			// หาก top = ความสูงหน้าจอหรือ window.innerHeight แปลว่าอีลีเมนท์นั้นกำลังโผล่มา
+			if (ppR.top < window.innerHeight && ppR.bottom > 0) {
+				paragraph.classList.remove('small')
+			}
+			else {
+				paragraph.classList.add('small')
+			}
+		}
+		window.addEventListener("scroll", ppp);
+	</script>
 </body>
 </html>
