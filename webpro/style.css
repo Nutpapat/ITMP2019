@@ -7,7 +7,7 @@ body {
   }
 
 #maintitle{
-    position: absolute;
+    position: fixed;
     top: 200px;
     left: 500px;
     height: 250px;
@@ -15,7 +15,7 @@ body {
 
 }
 #button{
-    position: absolute;
+    position: fixed;
     top: 400px;
     left: 670px;
     height: 100px;
@@ -23,7 +23,7 @@ body {
 
 }
 #pic1{
-    position: absolute;
+    position: fixed;
     top: 100px;
     left: 200px;
     height: 600px;
