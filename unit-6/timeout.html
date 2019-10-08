@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TimeOut</title>
+</head>
+<body>
+	<div id="div1" style="width:200px;height: 200px;background-color: gray">10</div>
+	<script type="text/javascript">
+		start = 10;
+		for(let i = start; i > 0 ; i--) {
+			setTimeout(function() {
+				div1.innerText = i;
+				console.log(i);
+
+			},1000*(10-i))
+		}
+	</script>
+</body>
+</html>

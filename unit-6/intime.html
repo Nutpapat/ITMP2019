@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TimeOut</title>
+</head>
+<body>
+	<h1 id="show_h"></h1>
+	<h1 id="show_m"></h1>
+	<h1 id="show_s"></h1>
+
+	<script type="text/javascript">
+		var d = new Date();
+		var hour = d.getHours();
+		var min = d.getMinutes();
+		var sec = d.getSeconds();
+		setInterval(function () {
+		var d = new Date();
+		var hour = d.getHours();
+		var min = d.getMinutes();
+		var sec = d.getSeconds();
+			show_h.innerText=hour;
+			show_m.innerText=min;
+			show_s.innerText=sec;
+		},1000)
+	</script>
+</body>
+</html>
