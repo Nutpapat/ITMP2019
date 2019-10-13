@@ -1,44 +1,42 @@
+/* Main css */
 body {
-    text-align: center;
-    margin:0;
-    background-image: url("bg.png")!important;
-    position: relative;
-    background-size: cover;  
-  }
-
-#maintitle{
-    position: fixed;
-    top: 200px;
-    left: 500px;
-    height: 250px;
-    width: 650px;
-
+    background-image: url('../image/bg-00.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
 }
-#button{
-    position: fixed;
-    top: 400px;
-    left: 670px;
-    height: 100px;
-    width: 200px;
 
-}
-#pic1{
+.title {
     position: fixed;
-    top: 100px;
-    left: 200px;
-    height: 600px;
-    width: 500px;
+    width: 30%;
+    height: 20%;
+    top: 10%;
+    left: 35%;
 }
+.butt {
+    position: fixed;
+    width: 30%;
+    height: 20%;
+    top: 10%;
+    left: 35%;
+}
+
+
+
 /* Responsive style */
 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { }
+/* medium */
+@media only screen and (max-width: 900px) {
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {  }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { }
+    
+}
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { }
+/* Small */
+@media only screen and (max-width: 510px) {
+
+
+    
+}
+
