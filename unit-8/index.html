@@ -2,12 +2,42 @@
 <html>
 <head>
 	<title>My responsive</title>
-	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style type="text/css">
+	*{
+        transition: all.3s;
+    }
+		body{
+			margin: 0;
+			background: red;
+		}
+		#img{
+			width: 100%;
+			padding-top: 56.25%;
+			background-image: url(1.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+		@media (max-width:768px){
+			body{
+			background: green;
+			}
+			#img{
+			background-image: url(2.jpg);
+			}
+        }
+		@media (max-width:600px){
+			body{
+			background:blue;
+			}
+			#img{
+			background-image: url(3.jpg);
+			}
+		}		
+	</style>
 </head>
 <body>
-	<div id="mybox"></div>
-	<div id="mybox2"></div>
-	<div id="mybox3"></div>
+	<div id="img"></div>
+	<div id="contrainer"></div>
 </body>
 </html>
