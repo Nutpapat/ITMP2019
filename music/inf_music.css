@@ -226,7 +226,6 @@ img {
   align-items: center;
   width: 100%;
   transition: all .5s;
-  overflow: hidden;
 }
 .slider__cover {
   position: absolute;
@@ -261,7 +260,6 @@ img {
   object-fit: cover;
 }
 .slider__content {
-  padding-top: 15%;
   z-index: 2;
   width: 100%;
   padding-left: 40%;
@@ -269,7 +267,7 @@ img {
 }
 .slider__title {
   z-index: 3;
-  margin: -45%;
+  margin-top: 0;
   margin-bottom: 2%;
   text-align: center;
   font-weight: 900;
@@ -470,6 +468,9 @@ img {
   top: 42%;
   left: -25%;
 }
+.slider__title {
+  margin-top: -26%;
+}
 }
 @media screen and (max-width: 1200px) {
   .content {
@@ -496,8 +497,9 @@ img {
     left: 22%;
   }
   .slider__title {
-    font-size: 34px;
-  }
+  margin-top: -26%;
+  font-size: 34px;
+}
   .slider__describe {
     font-size: 20px;
   }
@@ -655,6 +657,9 @@ img {
     left: 90%;
     width: 22%;
 }
+  .slider__title {
+    margin-top: -51%;
+}
 }
 @media screen and (max-width: 767px) {
   .top-logo img{
@@ -714,7 +719,7 @@ img {
 }
 .slider__cover4 {
     position: absolute;
-    top: 74%;
+    top: 66%;
     left: 84%;
     width: 20%;
 }
@@ -734,6 +739,9 @@ img {
     padding-left: 20%;
     padding-top: 35%;
   }
+    .slider__title {
+    margin-top: -42%;
+}
 
 }
 @media screen and (max-width: 576px) {
@@ -855,9 +863,12 @@ img {
 }
 .slider__cover4 {
     position: absolute;
-    top: 89%;
+    top: 91%;
     left: 79%;
-    width: 24%;
+    width: 26%;
+}
+  .slider__title {
+    margin-top: -10%;
 }
 }
 @media screen and (max-width: 375px) {
