@@ -707,6 +707,7 @@ img {
     left: 11%;
     width: 91%;
     padding: 20px 47px 126px;
+    max-height: 126vh;
 }
 .slider__cover2 {
     top: -12%;
@@ -790,26 +791,35 @@ img {
     padding-right: 15px;
   }
 .slider__cover {
-    top: -56%;
-    left: 16%;
-    width: 77%;
+    top: -51%;
+    left: 15%;
+    width: 79%;
     padding: 41% 2% 33%;
+    max-height: 141vh;
 }
 .slider__cover2 {
-    top: 4%;
-    left: 10%;
+    top: 2%;
+    left: 7%;
     width: 25%;
 }
 .slider__describe {
-    font-size: 10px;
-    padding: 52px;
+    font-size: 12px;
+    margin-top:10%;
+    padding-left: 10%;
+    padding-right: 10%;
   }
   .slider__describe2 {
-  font-size: 10px;
+  font-size: 12px;
+  margin-top:10%;
+  padding-left: 10%;
+  padding-right: 10%;
 
 }
 .slider__describe3 {
-  font-size: 10px;
+  font-size: 12px;
+  margin-top:10%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
   .slider__title {
     font-size: 24px;
@@ -826,22 +836,36 @@ img {
     top: -14%;
     left: 50%;
 }
+#img1 {
+    width: 64%;
+    top: 42%;
+    left: 19%;
+}
+#img2 {
+    width: 89%;
+    top: 42%;
+    left: 3%;
+}
+#img3 {
+    width: 101%;
+    top: 42%;
+    left: 8%;
+}
+#img6 {
+    top: 40%;
+}
 .slider__cover3 {
-    top: 8%;
-    left: 64%;
+    top: 27%;
+    left: 70%;
+    width: 37%;
 }
 .slider__cover4 {
     position: absolute;
-    top: 84%;
-    left: 80%;
-    width: 20%;
+    top: 73%;
+    left: 76%;
+    width: 25%;
 }
-.slider__cover4 {
-    position: absolute;
-    top: 84%;
-    left: 75%;
-    width: 20%;
-}
+
 }
 @media screen and (max-width: 411px) {
   .bg-shape {
@@ -852,27 +876,40 @@ img {
     padding-left: 15%;
     padding-right: 15px;
 }
+.slider__cover {
+    top: -39%;
+    left: 17%;
+    width: 77%;
+    padding: 41% 2% 33%;
+    max-height: 126vh;
+}
 .slider__cover2 {
-    top: -1%;
-    left: 2%;
-    width: 25%;
+    top: 3%;
+    left: 3%;
+    width: 28%;
 }
 .slider__cover3 {
-    top: 11%;
-    left: 73%;
+    top: 31%;
+    left: 76%;
 }
 .slider__cover4 {
     position: absolute;
-    top: 91%;
+    top: 74%;
     left: 79%;
     width: 26%;
 }
   .slider__title {
-    margin-top: -10%;
+    margin-top: 5%;
 }
 }
 @media screen and (max-width: 375px) {
   .bg-shape {
     top: 50%;
   }
+  .slider__cover4 {
+    position: absolute;
+    top: 69%;
+    left: 79%;
+    width: 26%;
+}
 }
