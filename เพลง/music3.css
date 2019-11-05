@@ -288,8 +288,8 @@ li a:hover {
   position: absolute;
   top: 95%;
   left: 44%;
-  width: 38%
-
+  width: 42%;
+  height: 115%;
 }
 .textname{
   position: absolute;
@@ -309,26 +309,24 @@ li a:hover {
   line-height: 175%;
   top: 143%;
   left: -18%;
-  width: 149%;
+  width: 187%;
   padding-left: 6%;
-
   font-size: 17px;
   color: #71512e;
 }
 
-.papaermusic{
-  position: absolute;
-  top: 137%;
-  left: 14%;
-  width: 59%;
-  height: 227%;
-
+.papaermusic {
+    position: absolute;
+    top: 169%;
+    left: 14%;
+    width: 59%;
+    height: 165%;
 }
 .textmusic{
   position: absolute;
   z-index: 3;
   margin-top: 0;
-  top: 164%;
+  top: 192%;
   left: 30%;
   font-weight: 900;
   color: #71512e;
@@ -364,13 +362,13 @@ li a:hover {
     z-index: 3;
     position: absolute;
     width: 14%;
-    top: 157%;
-    left: 70%;
+    top: 177%;
+    left: 73%;
 }
 .pic4 {
     position: absolute;
     width: 41%;
-    top: 158%;
+    top: 179%;
     left: -16%;
 }
 .pic5 {
@@ -382,63 +380,55 @@ li a:hover {
 .pic6 {
     position: absolute;
     width: 39%;
-    top: 108%;
-    left: -9%;
+    top: 135%;
+    left: -5%;
 }
 .pic7 {
     z-index: 2;
     position: absolute;
     width: 33%;
-    top: 196%;
+    top: 222%;
     left: 77%;
 }
 .pic8 {
     z-index: 2;
     position: absolute;
     width: 33%;
-    top: 285%;
-    left: 47%;
+    top: 268%;
+    left: 43%;
 }
-
 .pic9 {
     z-index: -1;
     position: absolute;
     width: 33%;
-    top: 103%;
+    top: 132%;
     left: 15%;
 }
 .pic10 {
     position: absolute;
-    width: 14%;
-    top: 207%;
-    left: 6%;
+    width: 15%;
+    top: 231%;
+    left: 5%;
 }
 .pic11 {
     z-index: -1;
     position: absolute;
-    width: 37%;
-    top: 237%;
-    left: 59%;
+    width: 35%;
+    top: 198%;
+    left: 62%;
 }
 .pic12 {
-    z-index: 0;
+    z-index: -1;
     position: absolute;
-    width: 29%;
-    top: 331%;
-    left: 38%;
-}
-.pic13 {
-    z-index: 0;
-    position: absolute;
-    width: 23%;
-    top: 314%;
-    left: 19%;
+    width: 30%;
+    top: 309%;
+    left: 41%;
 }
 .footer {
    z-index: 3;
    position: absolute;
    left: -50%;
-   bottom:-280%;
+   bottom:-263%;
    width: 200%;
    background-color: #373B44;
    color: white;
@@ -472,36 +462,11 @@ ul {
     line-height: 138%;
     font-size: 15px;
 }
-.pic3 {
-    width: 17%;
-    top: 144%;
-    left: 70%;
-}
 .pic8 {
     top: 259%;
 }
-.pic11 {
-    width: 32%;
-    top: 226%;
-    left: 59%;
-}
 .pic12 {
-    top: 303%;
-}
-.pic13 {
-    width: 23%;
-    top: 289%;
-    left: 19%;
-}
-.papaermusic {
-    position: absolute;
-    top: 137%;
-    left: 14%;
-    width: 59%;
-    height: 191%;
-}
-.footer {
-    bottom: -249%;
+    top: 247%;
 }
 }
 
@@ -567,19 +532,9 @@ p {
     top: 274%;
     left: 50%;
 }
-.pic11 {
-    width: 37%;
-    top: 231%;
-    left: 61%;
-}
 .pic12 {
-    top: 308%;
-    left: 46%;
-}
-.pic13 {
-    width: 23%;
-    top: 296%;
-    left: 29%;
+    top: 262%;
+    left: 60%;
 }
 .pic7 {
     width: 28%;
@@ -615,7 +570,7 @@ ul {
     left: -23%;
     padding-left: 6%;
     font-size: 15px;
-    width: 149%;
+    width: 127%;
 }
 .textname {
     top: 103%;
@@ -652,9 +607,9 @@ ul {
 .pic11 {
     z-index: -1;
     position: absolute;
-    width: 37%;
-    top: 209%;
-    left: 66%;
+    width: 39%;
+    top: 157%;
+    left: 63%;
 }
 .pic8 {
     width: 33%;
@@ -667,16 +622,8 @@ ul {
     left: 85%;
 }
 .pic12 {
-    top: 298%;
-    left: 49%;
-}
-.pic13 {
-    width: 23%;
-    top: 288%;
-    left: 29%;
-}
-.footer {
-    bottom: -238%;
+    top: 252%;
+    left: 69%;
 }
 }
 @media screen and (max-width: 767px) {
@@ -751,12 +698,12 @@ ul {
 }
 .pic3 {
     width: 19%;
-    top: 123%;
+    top: 120%;
     left: 75%;
 }
 .pic11 {
-    width: 35%;
-    top: 171%;
+    width: 39%;
+    top: 127%;
     left: 67%;
 }
 .pic7 {
@@ -765,13 +712,12 @@ ul {
     left: 86%;
 }
 .papaermusic {
-    top: 115%;
+    top: 114%;
     left: 5%;
     width: 86%;
-    height: 163%;
 }
 .textmusic {
-    top: 135%;
+    top: 132%;
     font-size: 15px;
     left: 23%;
 }
@@ -787,24 +733,19 @@ ul {
     left: 5%;
 }
 .pic8 {
-    width: 36%;
-    top: 229%;
-    left: 53%;
+    width: 33%;
+    top: 221%;
+    left: 57%;
 }
 .pic12 {
-    top: 256%;
-    left: 49%;
-}
-.pic13 {
-    width: 23%;
-    top: 246%;
-    left: 29%;
+    top: 215%;
+    left: 69%;
 }
 .footer {
     z-index: 3;
     position: absolute;
     left: -50%;
-    bottom: -184%;
+    bottom: -166%;
     width: 200%;
     background-color: #373B44;
     color: white;
@@ -948,8 +889,8 @@ ul {
     left: 83%;
 }
 .pic11 {
-    width: 33%;
-    top: 166%;
+    width: 39%;
+    top: 116%;
     left: 71%;
 }
 .pic7 {
@@ -977,13 +918,8 @@ ul {
     left: 62%;
 }
 .pic12 {
-    top: 223%;
-    left: 58%;
-}
-.pic13 {
-    width: 23%;
-    top: 215%;
-    left: 42%;
+    top: 201%;
+    left: 75%;
 }
 .footer {
     z-index: 3;
@@ -1001,12 +937,6 @@ h1 {
 li a {
   padding: 12px 36px;
   font-size: 12px;
-}
-.describe1 {
-    left: -6%;
-    padding-left: 6%;
-    font-size: 12px;
-    width: 127%;
 }
 }
 @media screen and (max-width: 411px) {
@@ -1072,7 +1002,7 @@ ul {
     left: -17%;
     padding-left: 8%;
     font-size: 9px;
-    width: 139%;
+    width: 123%;
 }
 .papaermusic {
     top: 65%;
@@ -1128,8 +1058,8 @@ ul {
     top: 57%;
 }
 .pic11 {
-    width: 32%;
-    top: 136%;
+    width: 39%;
+    top: 85%;
     left: 71%;
 }
 .pic7 {
@@ -1149,15 +1079,6 @@ ul {
 .pic10 {
     top: 110%;
     left: 5%;
-}
-.pic13 {
-    width: 23%;
-    top: 181%;
-    left: 31%;
-}
-.pic12 {
-    top: 186%;
-    left: 50%;
 }
 .footer {
     z-index: 3;

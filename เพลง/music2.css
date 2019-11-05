@@ -11,6 +11,7 @@ body {
   font-family: 'Trirong', sans-serif;
   font-weight: 500;
   background-image: url('./img/แบ้คกราว-01.png');
+  overflow-x: hidden;
 
 }
 
@@ -119,8 +120,8 @@ body {
 }
 
 .spin {
-  -webkit-animation: spin 5s linear 0s infinite forwards;
-          animation: spin 5s linear 0s infinite forwards;
+  -webkit-animation: spin .7s linear 0s infinite forwards;
+          animation: spin .7s linear 0s infinite forwards;
 }
 
 @-webkit-keyframes spin {
@@ -308,7 +309,7 @@ li a:hover {
   line-height: 175%;
   top: 143%;
   left: -18%;
-  width: 135%;
+  width: 140%;
   padding-left: 6%;
 
   font-size: 17px;
@@ -320,6 +321,7 @@ li a:hover {
   top: 137%;
   left: 14%;
   width: 59%;
+  height: 246%;
 
 }
 .textmusic{
@@ -380,7 +382,7 @@ li a:hover {
 .pic6 {
     position: absolute;
     width: 39%;
-    top: 105%;
+    top: 109%;
     left: -5%
 }
 .pic7 {
@@ -394,8 +396,8 @@ li a:hover {
     z-index: 2;
     position: absolute;
     width: 33%;
-    top: 285%;
-    left: 47%;
+    top: 305%;
+    left: 42%;
 }
 
 .pic9 {
@@ -407,29 +409,44 @@ li a:hover {
 }
 .pic10 {
     position: absolute;
-    width: 12%;
+    width: 16%;
     top: 230%;
-    left: 8%;
+    left: 4%;
 }
 .pic11 {
     z-index: -1;
     position: absolute;
-    width: 37%;
-    top: 171%;
-    left: 59%;
+    width: 28%;
+    top: 187%;
+    left: 66%;
 }
 .pic12 {
     z-index: -1;
     position: absolute;
     width: 22%;
-    top: 268%;
-    left: 57%;
+    top: 289%;
+    left: 66%;
 }
+.pic13 {
+    z-index: -1;
+    position: absolute;
+    width: 22%;
+    top: 262%;
+    left: 71%;
+}
+.pic14 {
+    z-index: -1;
+    position: absolute;
+    width: 22%;
+    top: 123%;
+    left: 79%;
+}
+
 .footer {
    z-index: 3;
    position: absolute;
    left: -50%;
-   bottom:-260%;
+   bottom:-283%;
    width: 200%;
    background-color: #373B44;
    color: white;
@@ -463,11 +480,30 @@ ul {
     line-height: 138%;
     font-size: 15px;
 }
+.papaermusic {
+    position: absolute;
+    top: 137%;
+    left: 14%;
+    width: 59%;
+    height: 220%;
+}
+.pic3 {
+    width: 14%;
+    top: 151%;
+    left: 70%;
+}
 .pic8 {
-    top: 259%;
+    top: 286%;
 }
 .pic12 {
-    top: 247%;
+    top: 274%;
+}
+.pic13 {
+    z-index: -1;
+    position: absolute;
+    width: 22%;
+    top: 246%;
+    left: 68%;
 }
 }
 
@@ -500,7 +536,8 @@ p {
     width: 67%;
 }
 .textmusic {
-    left: 26%;
+    left: 27%;
+    top: 172%;
 }
 .describe2 {
     position: absolute;
@@ -525,22 +562,46 @@ p {
 .pic11 {
     z-index: -1;
     position: absolute;
-    width: 42%;
-    top: 169%;
-    left: 61%;
+    width: 31%;
+    top: 188%;
+    left: 69%;
 }
 .pic8 {
-    top: 274%;
+    top: 298%;
     left: 50%;
 }
 .pic12 {
-    top: 262%;
-    left: 60%;
+    top: 283%;
+    left: 69%;
+}
+.pic13 {
+    z-index: -1;
+    position: absolute;
+    width: 29%;
+    top: 246%;
+    left: 68%;
 }
 .pic7 {
     width: 28%;
     top: 204%;
     left: 85%;
+}
+.pic14 {
+    z-index: -1;
+    position: absolute;
+    width: 20%;
+    top: 123%;
+    left: 81%;
+}
+.footer {
+    z-index: 3;
+    position: absolute;
+    left: -50%;
+    bottom: -264%;
+    width: 200%;
+    background-color: #373B44;
+    color: white;
+    text-align: center;
 }
 }
 @media screen and (max-width: 992px) {
@@ -575,7 +636,7 @@ ul {
 }
 .textname {
     top: 103%;
-    left: 52%;
+    left: 54%;
     font-size: 18px;
     line-height: 1.2em;
     letter-spacing: 2px;
@@ -586,7 +647,7 @@ ul {
     width: 81%;
 }
 .textmusic {
-    top: 153%;
+    top: 160%;
 }
 .pic1 {
     width: 27%;
@@ -614,7 +675,7 @@ ul {
 }
 .pic8 {
     width: 33%;
-    top: 261%;
+    top: 288%;
     left: 54%;
 }
 .pic7 {
@@ -622,9 +683,26 @@ ul {
     top: 181%;
     left: 85%;
 }
+.pic11 {
+    z-index: -1;
+    position: absolute;
+    width: 30%;
+    top: 168%;
+    left: 70%;
+}
 .pic12 {
-    top: 252%;
-    left: 69%;
+    top: 278%;
+    left: 73%;
+}
+.pic13 {
+    z-index: -1;
+    position: absolute;
+    width: 29%;
+    top: 250%;
+    left: 70%;
+}
+.footer {
+    bottom: -253%;
 }
 }
 @media screen and (max-width: 767px) {
@@ -703,9 +781,16 @@ ul {
     left: 75%;
 }
 .pic11 {
-    width: 39%;
-    top: 127%;
-    left: 67%;
+    width: 25%;
+    top: 140%;
+    left: 73%;
+}
+.pic14 {
+    z-index: -1;
+    position: absolute;
+    width: 20%;
+    top: 102%;
+    left: 83%;
 }
 .pic7 {
     width: 28%;
@@ -713,9 +798,10 @@ ul {
     left: 86%;
 }
 .papaermusic {
-    top: 114%;
+    top: 112%;
     left: 5%;
     width: 86%;
+    height: 172%;
 }
 .textmusic {
     top: 132%;
@@ -735,18 +821,25 @@ ul {
 }
 .pic8 {
     width: 33%;
-    top: 221%;
-    left: 57%;
+    top: 236%;
+    left: 53%;
 }
 .pic12 {
-    top: 215%;
-    left: 69%;
+    top: 229%;
+    left: 76%;
+}
+.pic13 {
+    z-index: -1;
+    position: absolute;
+    width: 29%;
+    top: 204%;
+    left: 70%;
 }
 .footer {
     z-index: 3;
     position: absolute;
     left: -50%;
-    bottom: -166%;
+    bottom: -184%;
     width: 200%;
     background-color: #373B44;
     color: white;
@@ -860,6 +953,12 @@ ul {
     left: 42%;
     width: 60%;
 }
+.describe1 {
+    left: -5%;
+    padding-left: 6%;
+    font-size: 10px;
+    width: 103%;
+}
 .textname {
     top: 74%;
     left: 52%;
@@ -874,10 +973,10 @@ ul {
     top: 89%;
 }
 .papaermusic {
-    top: 94%;
+    top: 90%;
     left: 5%;
     width: 93%;
-    height: 149%;
+    height: 174%;
 }
 .textmusic {
     top: 113%;
@@ -886,13 +985,13 @@ ul {
 }
 .pic3 {
     width: 19%;
-    top: 108%;
+    top: 103%;
     left: 83%;
 }
 .pic11 {
-    width: 39%;
-    top: 116%;
-    left: 71%;
+    width: 28%;
+    top: 125%;
+    left: 73%;
 }
 .pic7 {
     width: 28%;
@@ -915,18 +1014,25 @@ ul {
 }
 .pic8 {
     width: 33%;
-    top: 205%;
+    top: 223%;
     left: 62%;
 }
 .pic12 {
-    top: 201%;
-    left: 75%;
+    top: 218%;
+    left: 78%;
+}
+.pic14 {
+    z-index: -1;
+    position: absolute;
+    width: 24%;
+    top: 61%;
+    left: 61%;
 }
 .footer {
     z-index: 3;
     position: absolute;
     left: -50%;
-    bottom: -144%;
+    bottom: -164%;
     width: 200%;
     background-color: #373B44;
     color: white;
@@ -1000,16 +1106,16 @@ ul {
     letter-spacing: 1px;
 }
 .describe1 {
-    left: -17%;
+    left: -9%;
     padding-left: 8%;
     font-size: 9px;
-    width: 123%;
+    width: 120%;
 }
 .papaermusic {
     top: 65%;
     left: 3%;
     width: 93%;
-    height: 139%;
+    height: 159%;
 }
 .textmusic {
     top: 83%;
@@ -1048,7 +1154,7 @@ ul {
     left: -16%;
 }
 .pic5 {
-    top: 123%;
+    top: 182%;
     left: -7%;
 }
 .pic6 {
@@ -1059,9 +1165,9 @@ ul {
     top: 57%;
 }
 .pic11 {
-    width: 39%;
-    top: 85%;
-    left: 71%;
+    width: 27%;
+    top: 93%;
+    left: 73%;
 }
 .pic7 {
     width: 28%;
@@ -1070,22 +1176,36 @@ ul {
 }
 .pic8 {
     width: 33%;
-    top: 171%;
+    top: 187%;
     left: 59%;
 }
 .pic12 {
-    top: 167%;
+    top: 182%;
     left: 75%;
 }
 .pic10 {
-    top: 110%;
-    left: 5%;
+    top: 173%;
+    left: 3%;
+}
+.pic13 {
+    z-index: -1;
+    position: absolute;
+    width: 25%;
+    top: 165%;
+    left: 74%;
+}
+.pic14 {
+    z-index: -1;
+    position: absolute;
+    width: 24%;
+    top: 43%;
+    left: 61%;
 }
 .footer {
     z-index: 3;
     position: absolute;
     left: -50%;
-    bottom: -104%;
+    bottom: -124%;
     width: 200%;
     background-color: #373B44;
     color: white;
