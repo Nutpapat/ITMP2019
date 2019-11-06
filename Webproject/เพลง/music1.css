@@ -12,7 +12,6 @@ body {
   font-weight: 500;
   background-image: url('./img/แบ้คกราว-01.png');
   overflow-x: hidden;
-
 }
 
 .top-logo {
@@ -762,6 +761,9 @@ li a {
 }
 }
 @media screen and (max-width: 576px) {
+  body {
+  overflow-x: hidden;
+}
   .top-logo img{
   position: absolute;
   top: -2%;
@@ -942,6 +944,9 @@ li a {
 }
 }
 @media screen and (max-width: 411px) {
+  body {
+  overflow-x: hidden;
+}
 .title {
     left: 34%;
     top: 9%;
